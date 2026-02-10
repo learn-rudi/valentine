@@ -571,8 +571,15 @@
     escapeButton();
   }, { passive: false });
 
+  // ─── Celebration sound ───
+  const celebrationSound = new Audio('https://www.myinstants.com/media/sounds/take-my-breath-away.mp3');
+  celebrationSound.volume = 0.7;
+
   // ─── YES button → celebration ───
   btnYes.addEventListener('click', () => {
+    // Play the sound
+    celebrationSound.play().catch(() => {});
+
     // Hide card
     card.classList.add('hidden');
 
